@@ -119,6 +119,16 @@
     .danger:hover {
         background: #da190b;
     }
+
+    dialog {
+        border: none;
+        box-shadow: 0 2px 6px #ccc;
+        border-radius: 10px;
+    }
+
+    dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
 </style>
 
 <body style="background-color:#ADD8E6;">
@@ -129,7 +139,8 @@
 
         <div class="row">
             <div>
-                <p style="text-align: center; font-size: 60px;  border: solid 3px; margin-left: 100px; margin-right: 100px;">
+                <p
+                    style="text-align: center; font-size: 60px;  border: solid 3px; margin-left: 100px; margin-right: 100px;">
                     舞台</p>
             </div>
 
@@ -1363,8 +1374,30 @@
         </div>
 
         <div style="text-align: center; margin-top: 50px; margin-bottom: 80px;">
-            <button class="btn danger" style="margin-right: 5px;" onclick="location.href='index.html'" >返回</button>
-            <button class="btn success" style="margin-left: 5px;">送出</button>
+            <button class="btn danger" style="margin-right: 5px;" onclick="location.href='index.html'">返回</button>
+            <button class="btn success btn-default" style="margin-left: 5px;" onclick="location.href='#'">送出</button>
+            <!--<a href="#" class="btn btn-default" onclick="show()" onkeypress="show()">想再跳出視窗請按這邊</a>-->
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">手動設定教學標題</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>手動設定教學內文</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">好，下次進網頁繼續提醒我</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancel()"
+                                onkeypress="cancel()">夠了，不要再跳了</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -1373,4 +1406,5 @@
 
 
 </body>
+
 </html>
